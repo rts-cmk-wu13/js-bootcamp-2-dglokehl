@@ -43,11 +43,18 @@ label {
 
 #my-button {
 	padding: 8px;
-	background-color: #eee;
 	border: 1px solid #aaa;
 	border-radius: 5px;
 }
 
 #my-button:focus {
 	outline: none;
+}
+
+button {
+	background-color: #eee;
+}
+
+.color {
+	background-color: #7f7;
 }
