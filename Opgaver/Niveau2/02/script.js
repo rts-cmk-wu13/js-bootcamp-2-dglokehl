@@ -1,25 +1,36 @@
-const amountButtons = Array.from(document.querySelectorAll(".product__amount__buttons__container"));
-amountButtons.forEach(element => {
-	element.addEventListener("click", amountPlusMinus);
+const productAmount = document.querySelectorAll(".product__amount__count");
+const productPrice = document.querySelectorAll(".product__price--num");
+const productPriceTotal = document.querySelectorAll(".product__totalprice--num");
+
+const buttonPlus = document.querySelectorAll(".product__amount__plus");
+const buttonMinus = document.querySelectorAll(".product__amount__minus");
+
+
+buttonPlus.forEach((button, index) => {
+	button.addEventListener("click", updateAmountPlus)
+
+	let thisAmount = productAmount[index]
+	let thisPrice = Number(productPrice[index].textContent)
+	let thisPriceTotal = productPriceTotal[index]
+
+	function updateAmountPlus() {
+		thisAmount.textContent++
+		thisPriceTotal.textContent = thisPrice * Number(thisAmount.textContent)
+	}
 });
 
-const price = Array.from(document.querySelectorAll(".product__price--num"));
-const totalPrice = Array.from(document.querySelectorAll(".product__totalprice--num"));
 
-function amountPlusMinus(e) {
-	let productTotal = totalPrice[amountButtons.indexOf(this)]
-	let productCount = this.previousElementSibling
+buttonMinus.forEach((button, index) => {
+	button.addEventListener("click", updateAmountMinus)
 
-	let productPrice = price[amountButtons.indexOf(this)]
+	let thisAmount = productAmount[index]
+	let thisPrice = Number(productPrice[index].textContent)
+	let thisPriceTotal = productPriceTotal[index]
 
-	if (e.target.classList.contains("product__amount__plus")) {
-		productCount.textContent++;
-		productTotal.textContent = productPrice.textContent * productCount.textContent;
-
-	} else if (e.target.classList.contains("product__amount__minus")) {
-		if (productCount.textContent > 0) {
-			productCount.textContent--;
-			productTotal.textContent = productPrice.textContent * productCount.textContent;
+	function updateAmountMinus() {
+		if (thisAmount.textContent > 0) {
+			thisAmount.textContent--
 		}
+		thisPriceTotal.textContent = thisPrice * Number(thisAmount.textContent)
 	}
-}
+});
