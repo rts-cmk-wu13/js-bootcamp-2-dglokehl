@@ -35,14 +35,15 @@ label {
 	margin-bottom: 4px;
 }
 
-	label em {
-		font-weight: normal;
-		color: #aaa;
-		padding-left: 20px;
-	}
+label em {
+	font-weight: normal;
+	color: #aaa;
+	padding-left: 20px;
+}
 
 #my-button {
 	padding: 8px;
+	background-color: #eee;
 	border: 1px solid #aaa;
 	border-radius: 5px;
 }
@@ -51,10 +52,6 @@ label {
 	outline: none;
 }
 
-button {
-	background-color: #eee;
-}
-
-.color {
+#my-button.color {
 	background-color: #7f7;
 }

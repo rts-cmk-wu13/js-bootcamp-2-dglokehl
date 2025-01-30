@@ -1,6 +1,6 @@
 const button = document.querySelector("#my-button");
-button.addEventListener("click", changeColor)
+button.addEventListener("click", changeColor);
 
 function changeColor() {
-    button.classList.toggle("color")
+    button.classList.toggle("color");
 }
